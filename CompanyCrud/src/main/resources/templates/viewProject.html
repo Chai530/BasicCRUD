@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Project</title>
+<style>
+	table, th, td {
+	  border: 1px solid white;
+	  border-collapse: collapse;
+	  padding:3px;
+	}
+	th{
+	  background-color: rgb(0, 128, 192);
+	}
+	td{
+		  background-color: rgb(128, 255, 255);
+	}
+</style>
+</head>
+<body>
+<div align=center>
+	<h1>View All Project</h1>
+	<a href="addProject">Add new Project</a>
+	<table style="border-style: solid;padding:10px;">
+	 <thead>
+	 <tr>
+	 <th>Project ID</th>
+	 <th>Project Name</th>
+	 <th>Actions</th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each="project : ${listProjects}">
+	<td th:text="${project.project_id}">Project ID</td>
+	<td th:text="${project.project_name}">Project Name</td>
+	<td>
+	<a th:href="@{'/edit_project/'+${project.project_id}}">Edit</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<a th:href="@{'/delete_project/'+${project.project_id}}">Delete</a>
+	</td>
+	</tr>
+	
+	
+	</tbody>
+	</table>
+	<a href="index">Back to Home Page</a>
+</div>
+</body>
+</html>

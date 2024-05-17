@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Project Allocation</title>
+<style>
+	table, th, td {
+	  border: 1px solid white;
+	  border-collapse: collapse;
+	  padding:3px;
+	}
+	th{
+	  background-color: rgb(0, 128, 192);
+	}
+	td{
+		  background-color: rgb(128, 255, 255);
+	}
+</style>
+</head>
+<body>
+<div align=center>
+	<h1>View Project Assigned</h1>
+	<a href="addProjectAllocation">Assign project to employee</a>
+	<table style="border-style: solid;padding:10px;">
+	 <thead>
+	 <tr>
+	 <th>Project Allocation ID</th>
+	 <th>Project ID</th>
+	 <th>Employee ID</th>
+	 <th>Actions</th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each="projectallocation : ${listProjectAllocation}">
+	<td th:text="${projectallocation.project_allocation_id}">Project Allocation ID</td>
+	<td th:text="${projectallocation.employee_id}">Employee ID</td>
+	<td th:text="${projectallocation.project_id}">Project ID</td>
+	<td>
+	<a th:href="@{'/edit_projectallocation/'+${projectallocation.project_allocation_id}}">Edit</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<a th:href="@{'/delete_projectallocation/'+${projectallocation.project_allocation_id}}">Delete</a>
+	</td>
+	</tr>
+	
+	
+	</tbody>
+	</table>
+	<a href="index">Back to Home Page</a>
+</div>
+</body>
+</html>
