@@ -4,7 +4,7 @@
 2. Run MySQL Workbench as localhost
 3. Import the SQL script to the MySQL Workbench
 4. Run the CompanyCrudApplication as JAVA Application
-
+//test
 #Extra Information
 Only completed basic CRUD function without any extra requirements that requested on the question.
 
